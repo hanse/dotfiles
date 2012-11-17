@@ -1,0 +1,4 @@
+wget https://raw.github.com/douglascrockford/JSON-js/master/json2.js
+wget http://documentcloud.github.com/underscore/underscore.js
+wget http://backbonejs.org/backbone.js
+wget https://raw.github.com/jeromegn/Backbone.localStorage/master/backbone.localStorage.js

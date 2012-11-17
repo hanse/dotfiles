@@ -1,0 +1,48 @@
+
+# This script installs Ruby on Rails and clean it up a little bit.
+
+appName=$1
+
+rails new $appName
+cd $appName
+rm public/index.html
+rm README.rdoc
+rm -rf doc
+touch README.md
+
+cp config/database.yml config/database.example.yml
+
+echo "
+development:
+  adapter: postgresql
+  database: $appName
+  host: localhost
+" > config/database.yml
+
+echo "
+source 'http://rubygems.org'
+
+gem 'rails', '3.2.8'
+gem 'pg'
+gem 'thin'
+
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  gem 'compass-rails'
+end
+
+group :development do
+  gem 'brice'
+  gem 'awesome_print'
+  gem 'hirb'
+end
+
+gem 'jquery-rails'
+" > Gemfile
+
+bundle install
+git init
+
+
