@@ -4,7 +4,7 @@ alias pwdc="pwd|pbcopy && echo $(pwd) 'copied to pasteboard.'"
 alias ls="ls -G"
 alias la="ls -A"
 alias ll="ls -Al"
-
+alias hello=cd
 alias sublime=subl
 alias all="which -a"
 alias sl="subl ."
@@ -22,8 +22,6 @@ alias home="cd ~"
 alias nerd="cd ~/Utvikling/abakus/nerd"
 alias ntnu="cd ~/Dropbox/NTNU/kok"
 alias code="cd ~/Utvikling"
-
-alias edit_bash="sublime ~/.bash_profile"
 
 # Start a server in any directory
 alias server="python -m SimpleHTTPServer"

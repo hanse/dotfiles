@@ -5,7 +5,6 @@
 	user = Hanse
 [color]
 	diff = auto
-
 [color]
   ui = auto
 [color "branch"]
@@ -22,8 +21,6 @@
   changed = green
   untracked = cyan
 
-[color]
-  ui = true
 [color "diff"]
   whitespace = red reverse
 [core]
