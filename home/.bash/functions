@@ -1,0 +1,14 @@
+function ssh-hosts() {
+  awk '$1 ~ /Host$/ { print $2 }' ~/.ssh/config
+}
+
+function mkd() {
+  mkdir -p "$@" && cd "$1"
+}
+
+function install-backbone() {
+  wget https://raw.github.com/douglascrockford/JSON-js/master/json2.js
+  wget http://documentcloud.github.com/underscore/underscore.js
+  wget http://backbonejs.org/backbone.js
+  wget https://raw.github.com/jeromegn/Backbone.localStorage/master/backbone.localStorage.js
+}
