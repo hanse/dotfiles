@@ -20,7 +20,7 @@ alias ..="cd .."
 alias dropbox="cd ~/Dropbox"
 alias home="cd ~"
 alias nerd="cd ~/Utvikling/abakus/nerd"
-alias ntnu="cd ~/Dropbox/NTNU/kok"
+alias ntnu="cd ~/Dropbox/NTNU/"
 alias code="cd ~/Utvikling"
 
 # Start a server in any directory

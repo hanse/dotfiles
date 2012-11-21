@@ -1,5 +1,5 @@
 
-# This script installs Ruby on Rails and clean it up a little bit.
+# This script installs Ruby on Rails and cleans it up a little bit.
 
 appName=$1
 
