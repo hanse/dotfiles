@@ -8,9 +8,10 @@ cd $appName
 rm public/index.html
 rm README.rdoc
 rm -rf doc
-touch README.md
+echo "# $appName" > README.md
 
 cp config/database.yml config/database.example.yml
+echo "config/database.yml" >> .gitignore
 
 echo "
 development:
@@ -22,7 +23,7 @@ development:
 echo "
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails'
 gem 'pg'
 gem 'thin'
 
@@ -37,6 +38,7 @@ group :development do
   gem 'brice'
   gem 'awesome_print'
   gem 'hirb'
+  gem 'annotate'
 end
 
 gem 'jquery-rails'
