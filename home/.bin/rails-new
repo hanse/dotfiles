@@ -35,10 +35,13 @@ group :assets do
 end
 
 group :development do
-  gem 'brice'
+  gem 'wirble'
   gem 'awesome_print'
   gem 'hirb'
   gem 'annotate'
+  gem 'meta_request'
+  gem 'better_errors'
+  gem 'faker'
 end
 
 group :production do

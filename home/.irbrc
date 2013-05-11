@@ -23,6 +23,6 @@ end
 
 class Object
   def local_methods
-    (self.methods - Object.instance_methods).sort
+    (self.methods - Object.methods).sort
   end
 end

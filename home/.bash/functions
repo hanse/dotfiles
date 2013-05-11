@@ -5,3 +5,7 @@ function ssh-hosts() {
 function mkd() {
   mkdir -p "$@" && cd "$1"
 }
+
+function emne() {
+  cd "/Users/hans-kristiankoren/Dropbox/NTNU/code/$1"
+}
