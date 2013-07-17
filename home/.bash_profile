@@ -11,3 +11,5 @@ source ~/.bash/aliases
 source ~/.bash/functions
 source ~/.bash/shell
 source ~/.bash/rbenv
+
+. ~/Utvikling/github/z/z.sh

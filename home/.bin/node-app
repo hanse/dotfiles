@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+
+usage() {
+  cat <<-EOF
+
+    Usage: node-app <name> [options]
+
+    Create the following structure for a basic node.js project:
+
+      lib/
+      test/
+      Makefile
+      package.json
+      Readme.md
+
+    In addition, a new Git repo will be initialized.
+
+    Options:
+      --no-git        do not initialize a git repo
+      --npm           run npm install
+
+EOF
+exit
+}
+
+abort() {
+  echo " $@" 1>&2
+  exit 1
+}
+
+log() {
+  echo " ○ $@"
+}
+
+application=$1
+test -z "$application" && usage
+
+test -d "$application" && abort "$application already exists."
+
+echo "Creating application $application"
+
+mkdir $application
+cd $application
+
+# Generate a Makefile
+cat << EOF > Makefile
+install:
+
+test:
+  ./node_modules/.bin/mocha --reporter=spec --colors
+
+.PHONY: install test
+EOF
+
+log created Makefile
+
+# Generate the Readme file
+cat << EOF > Readme.md
+# $application
+
+## Usage
+
+## License
+MIT
+
+EOF
+
+log created Readme.md
+
+# Generate the package.json file
+cat << EOF > package.json
+{
+  "name": "$application",
+  "dependencies": {
+    "mocha": "*"
+  }
+}
+EOF
+
+log created Makefile
+
+cat << EOF > .gitignore
+.DS_Store
+node_modules
+dump.rdb
+EOF
+
+mkdir {test,lib}
+
+log created test/
+log created lib/
+
+git init > /dev/null
+git add .
+git commit -a -m "Initial commit" > /dev/null
+log initializing git repo
+
+echo "Done."

@@ -1,11 +1,7 @@
-function ssh-hosts() {
+ssh-hosts() {
   awk '$1 ~ /Host$/ { print $2 }' ~/.ssh/config
 }
 
-function mkd() {
+mkd() {
   mkdir -p "$@" && cd "$1"
-}
-
-function emne() {
-  cd "/Users/hans-kristiankoren/Dropbox/NTNU/code/$1"
 }

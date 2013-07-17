@@ -1,10 +1,10 @@
 [user]
-	name = hkk
-	email = hanse19@gmail.com
+  name = hkk
+  email = hanse19@gmail.com
 [github]
-	user = Hanse
+  user = Hanse
 [color]
-	diff = auto
+  diff = auto
 [color]
   ui = auto
 [color "branch"]
@@ -25,4 +25,4 @@
   whitespace = red reverse
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /Users/hans-kristiankoren/.gitignore_global
+  excludesfile = /Users/hans-kristiankoren/.gitignore_global
