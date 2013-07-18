@@ -5,11 +5,9 @@ PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
 eval "$(hub alias -s)"
 
-export LC_ALL=UTF-8
-
 source ~/.bash/aliases
 source ~/.bash/functions
 source ~/.bash/shell
 source ~/.bash/rbenv
 
-. ~/Utvikling/github/z/z.sh
+. /usr/local/etc/z.sh
