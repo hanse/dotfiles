@@ -5,3 +5,7 @@ ssh-hosts() {
 mkd() {
   mkdir -p "$@" && cd "$1"
 }
+
+bubba() {
+  echo $@ | tr 'A-Za-z1-90'  'Ⓐ-Ⓩⓐ-ⓩ①-⑨⓪'
+}
