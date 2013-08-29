@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+
+
+IFS=$'\n'
+list() {
+  echo "ⓉⓄⒹⓄ ⓁⒾⓈⓉ"
+  for task in `ls -t ~/Dropbox/Todos`; do
+    echo "○ $task"
+  done
+  exit 1;
+}
+
+task=$@
+
+test -z "$task" && list
+
+touch ~/Dropbox/Todos/"$task"
