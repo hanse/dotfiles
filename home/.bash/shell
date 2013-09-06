@@ -8,4 +8,8 @@ export PS1="\033[34m\]\w\[\033[35m\]\$(__git_ps1)\[\033[00m\] λ "
 export EDITOR="subl"
 export NODE_ENV=development
 
+export CLICOLOR=1
+export GREP_OPTIONS='--color=auto'
+export LSCOLORS=Exfxcxdxbxegedabagacad
 source "`brew --prefix`/etc/grc.bashrc"
+
