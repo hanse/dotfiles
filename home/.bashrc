@@ -3,6 +3,7 @@ PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/
 PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 PATH="/Applications/MATLAB_R2013a.app/bin:$PATH"
 PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH"
+PATH="/Users/hans-kristiankoren/.cabal/bin:$PATH"
 
 eval "$(hub alias -s)"
 
