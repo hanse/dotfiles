@@ -1,5 +1,3 @@
-alias pwdc="pwd|pbcopy && echo $(pwd) 'copied to pasteboard.'"
-
 # Listing
 alias ls="ls -G"
 alias la="ls -A"
@@ -8,11 +6,15 @@ alias sublime=subl
 alias all="which -a"
 alias sl="subl ."
 
-# Launch common applications
-alias safari="open -a Safari"
-alias chrome="open -a Google\ Chrome"
-alias chrome-dev="open -a Google\ Chrome --args --disable-web-security"
-alias ios-simulator="open -a /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app"
+if [ "$OS" == "Darwin" ]; then
+  alias pwdc="pwd|pbcopy && echo $(pwd) 'copied to pasteboard.'"
+  alias ios-simulator="open -a /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app"
+  alias safari="open -a Safari"
+  alias chrome="open -a Google\ Chrome"
+  alias chrome-dev="open -a Google\ Chrome --args --disable-web-security"
+  alias fixairplay="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
+  alias freespace="sudo rm /private/var/vm/sleepimage"
+fi
 
 # Places I often visit
 alias ..="cd .."
@@ -29,8 +31,6 @@ alias localip="ipconfig getifaddr en1"
 # Copy my public key to my clipboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy && echo '=> Public key copied to pasteboard.'"
 
-alias fixairplay="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
-alias freespace="sudo rm /private/var/vm/sleepimage"
 alias irc="mosh chat@hackr"
 
 alias week='date +%V'

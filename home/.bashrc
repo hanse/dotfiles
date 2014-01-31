@@ -1,11 +1,14 @@
-PATH="/Users/hans-kristiankoren/Utvikling/bin:$PATH"
-PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:~/.bin:$PATH"
-PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-PATH="/Applications/MATLAB_R2013a.app/bin:$PATH"
-PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH"
-PATH="/Users/hans-kristiankoren/.cabal/bin:$PATH"
 
-OS=`uname -s`
+export OS=`uname -s`
+
+if [ "$OS" == "Darwin" ]; then
+  PATH="/Users/hans-kristiankoren/Utvikling/bin:$PATH"
+  PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:~/.bin:$PATH"
+  PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+  PATH="/Applications/MATLAB_R2013a.app/bin:$PATH"
+  PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH"
+  PATH="/Users/hans-kristiankoren/.cabal/bin:$PATH"
+fi
 
 eval "$(hub alias -s)"
 
