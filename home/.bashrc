@@ -5,6 +5,8 @@ PATH="/Applications/MATLAB_R2013a.app/bin:$PATH"
 PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH"
 PATH="/Users/hans-kristiankoren/.cabal/bin:$PATH"
 
+OS=`uname -s`
+
 eval "$(hub alias -s)"
 
 export LC_CTYPE=en_US.UTF-8
