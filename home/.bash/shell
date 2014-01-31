@@ -11,5 +11,7 @@ export NODE_ENV=development
 export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 export LSCOLORS=Exfxcxdxbxegedabagacad
-source "`brew --prefix`/etc/grc.bashrc"
 
+if [ "$OS" == "Darwin" ]; then
+  source "`brew --prefix`/etc/grc.bashrc"
+fi
