@@ -1,0 +1,137 @@
+#!/usr/bin/env bash
+
+usage() {
+  cat <<-EOF
+
+    Usage: node-app <name> [options]
+
+    Create the following structure for a basic node.js project:
+
+      lib/
+      test/
+      Makefile
+      package.json
+      Readme.md
+
+    In addition, a new Git repo will be initialized.
+
+    Options:
+      --no-git        do not initialize a git repo
+      --npm           run npm install
+
+EOF
+exit
+}
+
+abort() {
+  echo " $@" 1>&2
+  exit 1
+}
+
+log() {
+  echo " ○ $@"
+}
+
+application=$1
+test -z "$application" && usage
+
+test -d "$application" && abort "$application already exists."
+
+echo "Creating application $application"
+
+mkdir $application
+cd $application
+
+# Generate a Makefile
+cat << EOF > Makefile
+JS=$(shell find public/js -name "*.js")
+STYL=$(shell find public/css -name "*.styl")
+
+all: public/build.js public/css/style.css
+
+server:
+	supervisor index.js
+
+public/build.js: $(JS)
+  browserify public/js/app.js -o public/build.js
+
+public/css/style.css: $(STYL)
+	stylus --compress --use ./node_modules/nib/lib/nib public/css/style.styl
+
+test:
+  ./node_modules/.bin/mocha --reporter=spec --colors
+
+.PHONY: server deploy clean
+EOF
+
+log created Makefile
+
+# Generate the Readme file
+cat << EOF > Readme.md
+# $application
+
+## Usage
+
+## License
+MIT
+
+EOF
+
+log created Readme.md
+
+cat << EOF > index.js
+var express = require('express')
+  , app = express();
+
+app.configure(function() {
+  app.set('port', process.env.PORT || 3000);
+  app.set('view engine', 'jade');
+  app.set('views', __dirname + '/views');
+  app.use(express.json());
+  app.use(express.urlencoded());
+  app.use(express.static(__dirname + '/public'));
+  app.locals.pretty = true;
+});
+
+app.get('/', function(req, res) {
+  res.send('Hello World');
+});
+
+app.listen(app.get('port'), function() {
+  console.log('server listening on ' + app.get('port'))
+});
+EOF
+
+# Generate the package.json file
+cat << EOF > package.json
+{
+  "name": "$application",
+  "dependencies": {
+    "express": "*",
+    "mocha": "*",
+    "jade": "*",
+    "stylus": "*",
+    "nib": "*"
+  }
+}
+EOF
+
+log created package.json
+
+cat << EOF > .gitignore
+.DS_Store
+node_modules
+dump.rdb
+EOF
+
+mkdir {test,lib}
+
+log created test/
+log created lib/
+
+git init > /dev/null
+git add .
+git commit -a -m "Initial commit" > /dev/null
+log initializing git repo
+
+echo "Done."

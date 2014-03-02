@@ -5,6 +5,7 @@ alias ll="ls -Al"
 alias sublime=subl
 alias all="which -a"
 alias sl="subl ."
+alias subl=atom
 
 if [ "$OS" == "Darwin" ]; then
   alias pwdc="pwd|pbcopy && echo $(pwd) 'copied to pasteboard.'"
@@ -55,4 +56,3 @@ alias so="git"
 alias be="bundle exec"
 alias rirb="be rails console"
 alias rs="be rails server"
-
