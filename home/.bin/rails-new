@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 # This script installs Ruby on Rails and cleans it up a little bit.
 
@@ -8,7 +9,7 @@ cd $appName
 rm public/index.html
 rm README.rdoc
 rm -rf doc
-echo "# $appName" > README.md
+echo "# $appName" > Readme.md
 
 cp config/database.yml config/database.example.yml
 echo "config/database.yml" >> .gitignore
@@ -23,7 +24,7 @@ development:
 echo "
 source 'http://rubygems.org'
 
-gem 'rails'
+gem 'rails', '~>4.0.0'
 gem 'pg'
 gem 'thin'
 
@@ -32,6 +33,7 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'compass-rails'
+  gem 'jquery-rails'
 end
 
 group :development do
@@ -49,7 +51,6 @@ group :production do
   gem 'newrelic_rpm'
 end
 
-gem 'jquery-rails'
 " > Gemfile
 
 echo "
