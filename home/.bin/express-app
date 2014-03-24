@@ -37,13 +37,13 @@ test -z "$application" && usage
 
 test -d "$application" && abort "$application already exists."
 
-echo "Creating application $application"
+echo "Creating express application '$application'"
 
 mkdir $application
 cd $application
 
 # Generate a Makefile
-cat << EOF > Makefile
+echo '
 JS=$(shell find public/js -name "*.js")
 STYL=$(shell find public/css -name "*.styl")
 
@@ -61,8 +61,8 @@ public/css/style.css: $(STYL)
 test:
   ./node_modules/.bin/mocha --reporter=spec --colors
 
-.PHONY: server deploy clean
-EOF
+.PHONY: server clean test
+' > Makefile
 
 log created Makefile
 

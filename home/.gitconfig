@@ -1,6 +1,6 @@
 [user]
   name = Hanse
-	email = hkkoren@stud.ntnu.no
+	email = hanse19@gmail.com
 [github]
   user = Hanse
 [color]
@@ -29,3 +29,6 @@
 	editor = subl -w
 [push]
 	default = matching
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
