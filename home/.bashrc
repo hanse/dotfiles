@@ -11,6 +11,7 @@ if [ "$OS" == "Darwin" ]; then
 fi
 
 eval "$(hub alias -s)"
+export PATH=~/.cabal/bin:$PATH
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
