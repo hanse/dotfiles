@@ -15,10 +15,6 @@ usage() {
 
     In addition, a new Git repo will be initialized.
 
-    Options:
-      --no-git        do not initialize a git repo
-      --npm           run npm install
-
 EOF
 exit
 }
@@ -44,19 +40,10 @@ cd $application
 
 # Generate a Makefile
 echo '
-JS=$(shell find public/js -name "*.js")
-STYL=$(shell find public/css -name "*.styl")
-
-all: public/build.js public/css/style.css
+all: test
 
 server:
 	supervisor index.js
-
-public/build.js: $(JS)
-  browserify public/js/app.js -o public/build.js
-
-public/css/style.css: $(STYL)
-	stylus --compress --use ./node_modules/nib/lib/nib public/css/style.styl
 
 test:
   ./node_modules/.bin/mocha --reporter=spec --colors
@@ -98,7 +85,7 @@ app.get('/', function(req, res) {
 });
 
 app.listen(app.get('port'), function() {
-  console.log('server listening on ' + app.get('port'))
+  console.log('server listening on %d', app.get('port'));
 });
 EOF
 
@@ -106,17 +93,13 @@ EOF
 cat << EOF > package.json
 {
   "name": "$application",
-  "dependencies": {
-    "express": "*",
-    "mocha": "*",
-    "jade": "*",
-    "stylus": "*",
-    "nib": "*"
-  }
+  "dependencies": {}
 }
 EOF
 
 log created package.json
+
+npm install --save express mocha jade stylus nib
 
 cat << EOF > .gitignore
 .DS_Store
