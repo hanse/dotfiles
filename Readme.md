@@ -1,3 +1,7 @@
 # my dotfiles
 
-	$ ./install.sh
+```bash
+$ gem install homesick
+$ homesick clone Hanse/dotfiles
+$ homesick symlink dotfiles
+```
