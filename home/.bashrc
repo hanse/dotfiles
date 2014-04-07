@@ -18,4 +18,6 @@ source ~/.bash/aliases
 source ~/.bash/functions
 source ~/.bash/rbenv
 
+source /usr/local/etc/bash_completion.d/password-store
+
 . `brew --prefix`/etc/profile.d/z.sh
