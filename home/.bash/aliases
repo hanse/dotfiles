@@ -34,7 +34,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy && echo '=> Public key copied to p
 alias irc="mosh chat@hackr"
 
 alias week='date +%V'
-alias wget-all='wget -r -np -nH –cut-dirs=3 -R index.html'
+alias wget-all='wget -r -np -nH –cut-dirs=3'
 
 
 # Git

@@ -1,6 +1,6 @@
 [user]
   name = Hanse
-	email = hanse19@gmail.com
+  email = hanse19@gmail.com
 [github]
   user = Hanse
 [color]
@@ -20,13 +20,11 @@
   added = yellow
   changed = green
   untracked = cyan
-
 [color "diff"]
   whitespace = red reverse
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
   excludesfile = ~/.gitignore_global
-	editor = subl -w
 [push]
 	default = matching
 [filter "media"]
