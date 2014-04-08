@@ -4,6 +4,8 @@ upgrade
 install git
 install vim
 install mongodb
+install bash
+install bash-completion
 install redis
 install sqlite
 install postgres
