@@ -31,7 +31,7 @@ alias localip="ipconfig getifaddr en1"
 # Copy my public key to my clipboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy && echo '=> Public key copied to pasteboard.'"
 
-alias irc="mosh chat@hackr"
+alias irc="mosh chat@hackr -- screen -dr 27282"
 
 alias week='date +%V'
 alias wget-all='wget -r -np -nH –cut-dirs=3'
