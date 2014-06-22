@@ -7,8 +7,14 @@ usage() {
 
     Create the following structure for a basic node.js project:
 
+      app/
+        css/
+          style.styl
+        js/
+          index.js
       lib/
       test/
+      index.js
       Makefile
       package.json
       Readme.md
@@ -40,15 +46,35 @@ cd $application
 
 # Generate a Makefile
 echo '
-all: test
+STYL=$(shell find app/css -name "*.styl")
+
+all: public/build.js public/app.css
 
 server:
 	supervisor index.js
 
-test:
-  ./node_modules/.bin/mocha --reporter=spec --colors
+ifneq ($(NODE_ENV),development)
 
-.PHONY: server clean test
+public/app.js: $(JS)
+	node_modules/.bin/browserify app/js/index.js | node_modules/.bin/uglifyjs > public/app.js
+
+public/app.css: $(STYL)
+	node_modules/.bin/stylus --resolve-url --inline --compress --include public --include node_modules/nib/lib < app/css/style.styl > public/app.css
+
+else
+
+public/app.js: $(JS)
+	node_modules/.bin/browserify app/js/billings.js > public/build.js
+
+public/app.css: $(STYL)
+	node_modules/.bin/stylus --resolve-url --inline --include node_modules/nib/lib < app/css/style.styl > public/app.css
+
+endif
+
+clean:
+	rm tmp/* public/app.css public/build.js
+
+.PHONY: server clean
 ' > Makefile
 
 log created Makefile
@@ -57,7 +83,11 @@ log created Makefile
 cat << EOF > Readme.md
 # $application
 
-## Usage
+## Install
+```
+$ npm install
+$ make
+```
 
 ## License
 MIT
@@ -67,51 +97,57 @@ EOF
 log created Readme.md
 
 cat << EOF > index.js
-var express = require('express')
-  , app = express();
+var express = require('express');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var app = express();
 
-app.configure(function() {
-  app.set('port', process.env.PORT || 3000);
-  app.set('view engine', 'jade');
-  app.set('views', __dirname + '/views');
-  app.use(express.json());
-  app.use(express.urlencoded());
+app.set('port', process.env.PORT || 3000);
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
+app.use(cookieParser());
+app.use(session({secret: process.env.SESSION_SECRET || 'Yo'}));
+app.use(bodyParser());
+app.locals.pretty = true;
+
+if ('development' === app.get('env'))
   app.use(express.static(__dirname + '/public'));
-  app.locals.pretty = true;
-});
 
 app.get('/', function(req, res) {
   res.send('Hello World');
 });
 
-app.listen(app.get('port'), function() {
-  console.log('server listening on %d', app.get('port'));
+app.use(function(req, res) {
+  res.send(404);
 });
-EOF
 
-# Generate the package.json file
-cat << EOF > package.json
-{
-  "name": "$application",
-  "dependencies": {}
-}
+require('app-listen')(app);
+
 EOF
 
 log created package.json
 
-npm install --save express mocha jade stylus nib
+npm install --save express body-parser mocha browserify uglify-js jade stylus nib app-listen
 
 cat << EOF > .gitignore
 .DS_Store
 node_modules
 dump.rdb
+npm-debug.log
 EOF
 
-mkdir {test,lib}
+mkdir {test,lib,app}
+mkdir app/{css,js}
 
+log created app/
 log created test/
 log created lib/
 
+touch app/css/style.styl
+touch app/js/index.js
+
+npm init
 git init > /dev/null
 git add .
 git commit -a -m "Initial commit" > /dev/null
