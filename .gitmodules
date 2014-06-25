@@ -1,0 +1,3 @@
+[submodule "janus"]
+	path = home/.vim
+	url = git@github.com:carlhuda/janus.git
