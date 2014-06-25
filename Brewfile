@@ -29,6 +29,8 @@ install pow
 install node
 install wget
 install pass
+install android-sdk
+install phantomjs
 
 tap phinze/cask
 install brew-cask

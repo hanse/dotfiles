@@ -17,6 +17,7 @@ source ~/.bash/shell
 source ~/.bash/aliases
 source ~/.bash/functions
 source ~/.bash/rbenv
+source ~/.env &> /dev/null
 
 source /usr/local/etc/bash_completion.d/password-store
 

@@ -26,11 +26,10 @@ alias server="python -m SimpleHTTPServer"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 
 # Copy my public key to my clipboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy && echo '=> Public key copied to pasteboard.'"
-
 
 alias week='date +%V'
 alias wget-all='wget -r -np -nH –cut-dirs=3'
