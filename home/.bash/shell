@@ -7,6 +7,8 @@ fi
 . $(brew --prefix git)/etc/bash_completion.d/git-completion.bash
 . $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
+
 export PS1="\[\033[34m\]\w\[\033[35m\]\$(__git_ps1)\[\033[00m\] ❯ "
 
 export EDITOR=vim
