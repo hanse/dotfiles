@@ -4,7 +4,6 @@ alias la="ls -A"
 alias ll="ls -Al"
 alias sublime=subl
 alias all="which -a"
-alias sl="subl ."
 
 if [ "$OS" == "Darwin" ]; then
   alias pwdc="pwd|pbcopy && echo $(pwd) 'copied to pasteboard.'"

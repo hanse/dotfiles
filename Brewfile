@@ -31,10 +31,11 @@ install wget
 install pass
 install android-sdk
 install phantomjs
+install tmux
 
 tap phinze/cask
 install brew-cask
-cask install cinch google-chrome spotify iterm2 sparrow transmit alfred dash flux cloud dropbox
+cask install cinch google-chrome spotify iterm2 sparrow transmit alfred dash flux cloud dropbox vagrant
 cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package
 
 cleanup
