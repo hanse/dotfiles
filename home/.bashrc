@@ -27,4 +27,7 @@ source ~/.env &> /dev/null
 
 source /usr/local/etc/bash_completion.d/password-store
 
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 . `brew --prefix`/etc/profile.d/z.sh
