@@ -17,6 +17,6 @@ export GREP_OPTIONS='--color=auto'
 export LSCOLORS=Exfxcxdxbxegedabagacad
 
 if [ "$OS" == "Darwin" ]; then
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home
   source "`brew --prefix`/etc/grc.bashrc"
 fi
