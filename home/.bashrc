@@ -10,7 +10,6 @@ if [ "$OS" == "Darwin" ]; then
   PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
   PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
   PATH=$PATH:/Applications/Mozart2.app/Contents/Resources/bin
-  PATH="/Applications/MATLAB_R2013a.app/bin:$PATH"
   PATH="$HOME/.cabal/bin:$PATH"
 fi
 
