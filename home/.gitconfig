@@ -1,6 +1,7 @@
 [user]
   name = Hanse
-  email = hanse19@gmail.com
+  email = hkri@koren.im
+	signingkey = 57EBD7A5
 [github]
   user = Hanse
 [color]
@@ -30,3 +31,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[commit]
+	gpgsign = true

@@ -1,17 +1,15 @@
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+  source $(brew --prefix)/etc/bash_completion
 fi
 
-. $(brew --prefix git)/etc/bash_completion.d/git-completion.bash
-. $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
+source $(brew --prefix git)/etc/bash_completion.d/git-completion.bash
+source $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
 
 export PS1="\[\033[34m\]\w\[\033[35m\]\$(__git_ps1)\[\033[00m\] ❯ "
 
 export EDITOR=vim
-export NODE_ENV=development
-
 export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 export LSCOLORS=Exfxcxdxbxegedabagacad

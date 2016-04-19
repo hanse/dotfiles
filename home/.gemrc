@@ -1,4 +1,4 @@
 ---
 :verbose: true
-gem: --no-ri --no-rdoc
+gem: --no-document
 :update_sources: true
