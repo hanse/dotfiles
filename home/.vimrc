@@ -4,11 +4,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'bling/vim-airline'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'chriskempson/base16-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'wincent/command-t'
 
 call vundle#end()
 filetype plugin indent on
@@ -38,7 +40,7 @@ set ai "Auto indent
 set si "Smart indent
 set background=dark
 
-colorscheme base16-default
+colorscheme base16-default-dark
 
 " Airline plugin configuration
 let g:airline_powerline_fonts = 1

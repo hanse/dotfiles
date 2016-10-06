@@ -1,14 +1,10 @@
 
 export OS=`uname -s`
 
-export GOPATH=$HOME/Utvikling/go
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
 if [ "$OS" == "Darwin" ]; then
-  PATH="$HOME/Utvikling/bin:$PATH"
-  PATH=$PATH:$GOPATH/bin
   PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:~/.bin:$PATH"
-  PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
   PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
   PATH="$HOME/.cabal/bin:$PATH"
 fi
@@ -26,8 +22,6 @@ source ~/.bash/node
 source ~/.env &> /dev/null
 
 source /usr/local/etc/bash_completion.d/password-store
-
-eval "$(thefuck --alias)"
 
 . `brew --prefix`/etc/profile.d/z.sh
 

@@ -2,7 +2,6 @@
 alias ls="ls -G"
 alias la="ls -A"
 alias ll="ls -Al"
-alias sublime=subl
 alias all="which -a"
 alias vim=nvim
 
@@ -19,7 +18,6 @@ fi
 # Places I often visit
 alias ..="cd .."
 alias ...="cd ../.."
-alias code="cd ~/Utvikling"
 
 # Start a server in any directory
 alias server="python -m SimpleHTTPServer"
