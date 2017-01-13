@@ -3,5 +3,5 @@
 ```bash
 $ gem install homesick
 $ homesick clone Hanse/dotfiles
-$ homesick symlink dotfiles
+$ homesick link dotfiles
 ```
