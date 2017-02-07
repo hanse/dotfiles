@@ -51,7 +51,7 @@ ZSH_CUSTOM=~/.oh-my-zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(pass)
+plugins=(pass virtualenv ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,6 +87,7 @@ fi
 . `brew --prefix`/etc/profile.d/z.sh
 
 export EDITOR=vim
+export NODE_ENV=development
 
 if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
   source ~/.gnupg/.gpg-agent-info
