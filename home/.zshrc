@@ -62,6 +62,8 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 if [ "$OS" = "Darwin" ]
 then
   PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:~/.bin:$PATH"
+  PATH="$HOME/.bin:$PATH"
+  PATH="$(yarn global bin):$PATH"
   PATH="$HOME/.cabal/bin:$PATH"
 fi
 

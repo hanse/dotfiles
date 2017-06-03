@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+spotify status | grep Track | awk '{gsub("Track: ", ""); gsub("Radio Edit", "");print}'
