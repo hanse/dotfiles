@@ -41,3 +41,5 @@
 	required = true
 [rerere]
 	enabled = true
+[ghi]
+	token = !security find-internet-password -a Hanse -s github.com -l 'ghi token' -w

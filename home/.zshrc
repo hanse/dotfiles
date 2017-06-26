@@ -51,7 +51,7 @@ ZSH_CUSTOM=~/.oh-my-zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(pass virtualenv ssh-agent)
+plugins=(pass ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,9 +59,14 @@ export OS=`uname -s`
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
+unsetopt inc_append_history
+unsetopt share_history
+
+
 if [ "$OS" = "Darwin" ]
 then
-  PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:~/.bin:$PATH"
+  PATH="$HOME/.fastlane/bin:$PATH"
+  PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
   PATH="$HOME/.bin:$PATH"
   PATH="$(yarn global bin):$PATH"
   PATH="$HOME/.cabal/bin:$PATH"
@@ -90,6 +95,9 @@ fi
 
 export EDITOR=vim
 export NODE_ENV=development
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
   source ~/.gnupg/.gpg-agent-info
