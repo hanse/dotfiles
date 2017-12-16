@@ -1,7 +1,7 @@
 # Listing
 alias ls="ls -G"
 alias la="ls -A"
-alias ll="ls -Al"
+alias ll="ls -hAl"
 alias all="which -a"
 alias vim=nvim
 

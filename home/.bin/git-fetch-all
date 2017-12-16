@@ -1,0 +1,6 @@
+find ~/dev -name .git -type d -prune | while read d; do
+   pushd $d/.. > /dev/null
+   echo "$PWD >"
+   git fetch
+   popd > /dev/null
+done
