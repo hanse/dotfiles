@@ -1,7 +1,7 @@
 require 'rubygems' rescue nil
 require 'wirble'
 require 'hirb'
-require 'ap'
+require 'awesome_print'
 
 Wirble.init
 Wirble.colorize

@@ -25,11 +25,17 @@ function collapse_pwd {
 }
 
 #PROMPT='%{$fg[blue]%}$(collapse_pwd) $(git_prompt_info)% ${ret_status}%{$reset_color%}'
-PROMPT='%{$FG[248]%}$(virtualenv_prompt_info)%{$reset_color%}%{$fg[blue]%}$(collapse_pwd) $(git_prompt_info)% ${ret_status}%{$reset_color%}'
+PROMPT='%{$FG[248]%}$(virtualenv_prompt_info)%{$reset_color%}%{$fg[blue]%}$(collapse_pwd) $(git_super_status)% ${ret_status}%{$reset_color%}'
+RPROMPT=''
 
-ZSH_THEME_GIT_PROMPT_CLEAN=") "
-ZSH_THEME_GIT_PROMPT_DIRTY=" *) "
-ZSH_THEME_GIT_PROMPT_ADDED=" +) "
-ZSH_THEME_GIT_PROMPT_UNTRACKED=" +) "
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[magenta]%}("
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[magenta]%}(%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[magenta]%})%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_SEPARATOR=""
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[magenta]%}"
+ZSH_THEME_GIT_PROMPT_STAGED=" %{$fg[yellow]%}%{●%G%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✖%G%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{+%G%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_BEHIND=" %{↓%G%}"
+ZSH_THEME_GIT_PROMPT_AHEAD=" %{↑%G%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$fg[cyan]%}%{+%G%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""

@@ -7,13 +7,11 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="hanse"
 ZSH_CUSTOM=~/.oh-my-zsh-custom
 
-plugins=(pass ssh-agent)
+plugins=(git-prompt pass ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
 export OS=`uname -s`
-
-export ANDROID_HOME=/usr/local/opt/android-sdk
 
 unsetopt inc_append_history
 unsetopt share_history
@@ -44,6 +42,9 @@ if [ -d "$HOME/.rbenv" ]; then
   PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 . ~/.zsh/aliases
 . `brew --prefix`/etc/profile.d/z.sh
