@@ -2,4 +2,5 @@
 target
 *.iml
 .DS_Store
-npm-debug.log
+.vscode
+*.log

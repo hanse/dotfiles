@@ -2,7 +2,7 @@ update
 upgrade
 
 install git
-install neovim/neovim/neovim
+install neovim
 install redis
 install sqlite
 install postgres
@@ -11,13 +11,13 @@ install python3
 install hub
 install imagemagick
 install node
+install nvm
 install z
 install visionmedia-watch
 install ruby-build
 install rbenv
 install mobile-shell
 install nmap
-install pow
 install wget
 install pass
 install tmux

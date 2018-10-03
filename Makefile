@@ -1,5 +1,5 @@
 install:
-	@homesick clone Hanse/dotfiles
+	@homesick clone hanse/dotfiles
 	@homesick clone dotfiles
 
 update:

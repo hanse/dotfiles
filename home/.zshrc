@@ -1,7 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="hanse"
@@ -13,8 +9,12 @@ source $ZSH/oh-my-zsh.sh
 
 export OS=`uname -s`
 
-unsetopt inc_append_history
-unsetopt share_history
+setopt inc_append_history
+setopt share_history
+
+export EDITOR=vim
+export NODE_ENV=development
+export ANDROID_HOME=$HOME/Library/Android/sdk
 
 if [ "$OS" = "Darwin" ]
 then
@@ -22,7 +22,9 @@ then
   PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
   PATH="$HOME/.bin:$PATH"
   PATH="$(yarn global bin):$PATH"
-  PATH="$HOME/.cabal/bin:$PATH"
+  PATH=$PATH:$ANDROID_HOME/tools
+  PATH=$PATH:$ANDROID_HOME/platform-tools
+  PATH=$PATH:/usr/local/opt/go/libexec/bin
 fi
 
 eval "$(hub alias -s)"
@@ -38,28 +40,9 @@ mkd() {
   mkdir -p "$@" && cd "$1"
 }
 
-if [ -d "$HOME/.rbenv" ]; then
-  PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 . ~/.zsh/aliases
 . `brew --prefix`/etc/profile.d/z.sh
 
-export EDITOR=vim
-export NODE_ENV=development
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:$HOME/go/bin
-
-if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
-  source ~/.gnupg/.gpg-agent-info
-  export GPG_AGENT_INFO
-else
-  eval $(gpg-agent --daemon ~/.gnupg/.gpg-agent-info)
-fi

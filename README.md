@@ -2,6 +2,6 @@
 
 ```bash
 $ gem install homesick
-$ homesick clone Hanse/dotfiles
+$ homesick clone hanse/dotfiles
 $ homesick link dotfiles
 ```
