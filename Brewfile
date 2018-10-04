@@ -1,25 +1,43 @@
-update
-upgrade
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
 
-install git
-install neovim
-install redis
-install postgres
-install hub
-install imagemagick
-install node
-install z
-install visionmedia-watch
-install mobile-shell
-install nmap
-install wget
-install pass
-install tmux
-install gpg
-install pinentry
-install shpotify
-tap caskroom/versions
-cask install google-chrome spotify iterm2-nightly atom slack visual-studio-code postman postico google-backup-and-sync keybase vlc
-cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv suspicious-package
+brew "git"
+brew "neovim"
+brew "redis"
+brew "postgres"
+brew "hub"
+brew "imagemagick"
+brew "node"
+brew "z"
+brew "visionmedia-watch"
+brew "mobile-shell"
+brew "nmap"
+brew "wget"
+brew "pass"
+brew "tmux"
+brew "gpg"
+brew "pinentry-mac"
+brew "shpotify"
 
-cleanup
+cask "google-chrome"
+cask "spotify"
+cask "iterm2-nightly"
+cask "slack"
+cask "visual-studio-code"
+cask "atom"
+cask "postman"
+cask "postico"
+cask "google-backup-and-sync"
+cask "qlcolorcode"
+cask "qlstephen"
+cask "qlmarkdown"
+cask "qlprettypatch"
+cask "quicklook-json"
+cask "quicklook-csv"
+cask "suspicious-package"
+
+mas "Lungo", id: 1263070803
+mas "Spark", id: 1176895641
