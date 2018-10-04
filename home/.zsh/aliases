@@ -18,6 +18,7 @@ fi
 # Places I often visit
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # Start a server in any directory
 alias server="python -m SimpleHTTPServer"
@@ -27,7 +28,7 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 
 # Copy my public key to my clipboard
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy && echo '=> Public key copied to pasteboard.'"
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo '=> Public key copied to pasteboard.'"
 
 alias week='date +%V'
 alias wget-all='wget -r -np -nH –cut-dirs=3'

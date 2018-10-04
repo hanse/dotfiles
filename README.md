@@ -1,7 +1,8 @@
 # my dotfiles
 
 ```bash
-$ gem install homesick
-$ homesick clone hanse/dotfiles
-$ homesick link dotfiles
+git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+homeshick clone hanse/dotfiles
+homeshick link dotfiles
 ```

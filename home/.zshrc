@@ -1,3 +1,5 @@
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="hanse"
