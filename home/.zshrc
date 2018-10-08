@@ -17,10 +17,12 @@ setopt share_history
 export EDITOR=vim
 export NODE_ENV=development
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export PYENV_ROOT="$HOME/.pyenv"
 
 if [ "$OS" = "Darwin" ]
 then
   PATH="$HOME/.fastlane/bin:$PATH"
+  PATH="$PYENV_ROOT/bin:$PATH"
   PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
   PATH="$HOME/.bin:$PATH"
   PATH="$(yarn global bin):$PATH"
@@ -45,6 +47,11 @@ mkd() {
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+. ~/.env
 . ~/.zsh/aliases
 . `brew --prefix`/etc/profile.d/z.sh
 
+export LANG=en_US.UTF-8
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
