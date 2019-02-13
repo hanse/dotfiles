@@ -22,6 +22,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 if [ "$OS" = "Darwin" ]
 then
   PATH="$HOME/.fastlane/bin:$PATH"
+  PATH="$HOME/.deno/bin:$PATH"
   PATH="$PYENV_ROOT/bin:$PATH"
   PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
   PATH="$HOME/.bin:$PATH"
@@ -44,9 +45,6 @@ mkd() {
   mkdir -p "$@" && cd "$1"
 }
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
 . ~/.env
 . ~/.zsh/aliases
 . `brew --prefix`/etc/profile.d/z.sh
@@ -55,3 +53,7 @@ export LANG=en_US.UTF-8
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# fnm
+export PATH=$HOME/.fnm:$PATH
+eval `fnm env`
