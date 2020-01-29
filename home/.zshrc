@@ -15,9 +15,7 @@ setopt inc_append_history
 setopt share_history
 
 export EDITOR=vim
-export NODE_ENV=development
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PYENV_ROOT="$HOME/.pyenv"
 
 if [ "$OS" = "Darwin" ]
 then
@@ -49,11 +47,17 @@ mkd() {
 . ~/.zsh/aliases
 . `brew --prefix`/etc/profile.d/z.sh
 
+# Python
+export PYENV_ROOT="$HOME/.pyenv"
 export LANG=en_US.UTF-8
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# fnm
+# Ruby
+eval "$(rbenv init -)"
+
+# Node.js
+export NODE_ENV=development
 export PATH=$HOME/.fnm:$PATH
 eval `fnm env`
