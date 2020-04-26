@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -19,5 +21,3 @@ then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew bundle
 fi
-
-curl https://raw.githubusercontent.com/Schniz/fnm/master/.ci/install.sh | bash

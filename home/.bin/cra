@@ -1,0 +1,49 @@
+#/usr/bin/env sh
+
+yarn create react-app --template typescript $1
+pushd $1
+rm src/logo.svg
+rm src/App.test.tsx
+rm src/App.css
+rm public/favicon.ico
+rm public/logo192.png
+rm public/logo512.png
+echo "# $1" > README.md
+
+cat << EOF > App.tsx
+import * as React from 'react';
+
+function App() {
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  );
+}
+
+export default App;
+
+EOF
+
+
+cat << EOF > index.tsx
+import * as React from 'react';
+import { render } from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+serviceWorker.unregister();
+
+EOF
+
+yarn add prettier --dev
+popd
+
