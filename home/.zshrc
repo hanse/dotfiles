@@ -55,9 +55,16 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Ruby
-eval "$(rbenv init -)"
+
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 
 # Node.js
 export NODE_ENV=development
 export PATH=$HOME/.fnm:$PATH
-eval `fnm env`
+
+if command -v fnm 1>/dev/null 2>&1; then
+  eval "$(fnm env --multi)"
+  
+fi
