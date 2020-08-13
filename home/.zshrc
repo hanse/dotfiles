@@ -7,6 +7,8 @@ ZSH_CUSTOM=~/.oh-my-zsh-custom
 
 plugins=(git-prompt pass ssh-agent)
 
+autoload -Uz compinit && compinit
+
 source $ZSH/oh-my-zsh.sh
 
 export OS=`uname -s`
@@ -66,5 +68,4 @@ export PATH=$HOME/.fnm:$PATH
 
 if command -v fnm 1>/dev/null 2>&1; then
   eval "$(fnm env --multi)"
-  
 fi
