@@ -21,7 +21,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 # Start a server in any directory
-alias server="python -m SimpleHTTPServer"
+alias server="python -m http.server"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

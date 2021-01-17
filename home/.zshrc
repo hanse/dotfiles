@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="hanse"
 ZSH_CUSTOM=~/.oh-my-zsh-custom
 
-plugins=(git-prompt pass ssh-agent)
+plugins=(git-prompt pass ssh-agent evalcache)
 
 autoload -Uz compinit && compinit
 
@@ -23,22 +23,24 @@ if [ "$OS" = "Darwin" ]
 then
   PATH="$HOME/.fastlane/bin:$PATH"
   PATH="$HOME/.deno/bin:$PATH"
-  PATH="$PYENV_ROOT/bin:$PATH"
-  PATH="/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
   PATH="$HOME/.bin:$PATH"
   PATH="$(yarn global bin):$PATH"
-  PATH=$PATH:$ANDROID_HOME/tools
-  PATH=$PATH:$ANDROID_HOME/platform-tools
-  PATH=$PATH:/usr/local/opt/go/libexec/bin
+  # PATH=$PATH:$ANDROID_HOME/tools
+  # PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
 
-eval "$(hub alias -s)"
+_evalcache hub alias -s
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 ssh-hosts() {
   awk '$1 ~ /Host$/ { print $2 }' ~/.ssh/config
+}
+
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
 mkd() {
@@ -50,22 +52,21 @@ mkd() {
 . `brew --prefix`/etc/profile.d/z.sh
 
 # Python
-export PYENV_ROOT="$HOME/.pyenv"
 export LANG=en_US.UTF-8
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  export PYENV_ROOT="$HOME/.pyenv"
+  PATH="$PYENV_ROOT/bin:$PATH"
+  _evalcache pyenv init -
 fi
 
-# Ruby
-
+# # Ruby
 if command -v rbenv 1>/dev/null 2>&1; then
-  eval "$(rbenv init -)"
+  _evalcache rbenv init -
 fi
-
-# Node.js
-export NODE_ENV=development
-export PATH=$HOME/.fnm:$PATH
 
 if command -v fnm 1>/dev/null 2>&1; then
-  eval "$(fnm env --multi)"
+  export PATH=$HOME/.fnm:$PATH
+  _evalcache fnm env --multi
 fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
