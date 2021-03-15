@@ -19,12 +19,11 @@ function virtualenv_prompt_info(){
 
 # disables prompt mangling in virtual_env/bin/activate
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
+#
 function collapse_pwd {
 	echo $(pwd | sed -e "s,^$HOME,~,")
 }
 
-#PROMPT='%{$fg[blue]%}$(collapse_pwd) $(git_prompt_info)% ${ret_status}%{$reset_color%}'
 PROMPT='%{$FG[248]%}$(virtualenv_prompt_info)%{$reset_color%}%{$fg[blue]%}$(collapse_pwd) $(git_super_status)% ${ret_status}%{$reset_color%}'
 RPROMPT=''
 

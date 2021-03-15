@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="hanse"
 ZSH_CUSTOM=~/.oh-my-zsh-custom
 
-plugins=(git-prompt pass ssh-agent evalcache)
+plugins=(git-prompt pass ssh-agent evalcache poetry yarn)
 
 autoload -Uz compinit && compinit
 
@@ -70,3 +70,5 @@ if command -v fnm 1>/dev/null 2>&1; then
 fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+eval "$(direnv hook zsh)"
