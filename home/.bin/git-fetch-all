@@ -1,4 +1,5 @@
-find ~/dev -name .git -type d -prune | while read d; do
+echo "git fetch in $PWD"
+find $PWD -name .git -type d -prune | while read d; do
    pushd $d/.. > /dev/null
    echo "$PWD >"
    git fetch

@@ -24,7 +24,6 @@ then
   PATH="$HOME/.fastlane/bin:$PATH"
   PATH="$HOME/.deno/bin:$PATH"
   PATH="$HOME/.bin:$PATH"
-  PATH="$(yarn global bin):$PATH"
   # PATH=$PATH:$ANDROID_HOME/tools
   # PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
