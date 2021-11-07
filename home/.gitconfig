@@ -54,3 +54,5 @@
 	branch = false
 [init]
 	defaultBranch = main
+[gpg]
+	program = gpg

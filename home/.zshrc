@@ -65,7 +65,7 @@ fi
 
 if command -v fnm 1>/dev/null 2>&1; then
   export PATH=$HOME/.fnm:$PATH
-  _evalcache fnm env --multi
+  _evalcache fnm env
 fi
 
 export PATH="$HOME/.poetry/bin:$PATH"

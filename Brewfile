@@ -22,6 +22,7 @@ brew "gpg"
 brew "pinentry-mac"
 brew "shpotify"
 brew "fnm"
+brew "direnv"
 
 cask "calibre"
 cask "figma"
