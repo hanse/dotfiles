@@ -71,3 +71,5 @@ fi
 export PATH="$HOME/.poetry/bin:$PATH"
 
 eval "$(direnv hook zsh)"
+
+source $HOME/.customrc
