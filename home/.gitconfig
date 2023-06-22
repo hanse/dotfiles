@@ -28,6 +28,8 @@
 	excludesfile = ~/.gitignore
 [push]
 	default = simple
+	autoSetupRemote = true
+	default = current
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
@@ -44,12 +46,6 @@
 	enabled = true
 [ghi]
 	token = !security find-internet-password -a Hanse -s github.com -l 'ghi token' -w
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [pager]
 	branch = false
 [init]

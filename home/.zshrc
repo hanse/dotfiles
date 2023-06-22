@@ -17,18 +17,18 @@ setopt inc_append_history
 setopt share_history
 
 export EDITOR=vim
-export ANDROID_HOME=$HOME/Library/Android/sdk
 
 if [ "$OS" = "Darwin" ]
 then
   PATH="$HOME/.fastlane/bin:$PATH"
   PATH="$HOME/.deno/bin:$PATH"
   PATH="$HOME/.bin:$PATH"
-  # PATH=$PATH:$ANDROID_HOME/tools
-  # PATH=$PATH:$ANDROID_HOME/platform-tools
+  PATH="/usr/local/sbin:$PATH"
 fi
 
-_evalcache hub alias -s
+if command -v hub 1>/dev/null 2>&1; then
+  _evalcache hub alias -s
+fi
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -58,7 +58,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   _evalcache pyenv init -
 fi
 
-# # Ruby
+# Ruby
 if command -v rbenv 1>/dev/null 2>&1; then
   _evalcache rbenv init -
 fi
@@ -70,6 +70,6 @@ fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
-eval "$(direnv hook zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $HOME/.customrc
