@@ -1,9 +1,11 @@
 # Listing
-alias ls="ls -G"
+alias ls=eza
 alias la="ls -A"
 alias ll="ls -hAl"
 alias all="which -a"
 alias vim=nvim
+alias grep=rg
+alias cat="bat --style plain"
 
 if [ "$OS" = "Darwin" ]; then
   alias pwdc="pwd|pbcopy && echo $(pwd) 'copied to pasteboard.'"
