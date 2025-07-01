@@ -43,7 +43,7 @@
 	required = true
 	process = git-lfs filter-process
 [rerere]
-	enabled = true
+	enabled = false
 [ghi]
 	token = !security find-internet-password -a Hanse -s github.com -l 'ghi token' -w
 [pager]

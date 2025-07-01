@@ -4,7 +4,7 @@ alias la="ls -A"
 alias ll="ls -hAl"
 alias all="which -a"
 alias vim=nvim
-alias grep=rg
+#alias grep=rg
 alias cat="bat --style plain"
 
 if [ "$OS" = "Darwin" ]; then

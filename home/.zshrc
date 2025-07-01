@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="hanse"
 ZSH_CUSTOM=~/.oh-my-zsh-custom
 
-plugins=(git-prompt pass ssh-agent evalcache poetry yarn)
+plugins=(git-prompt pass ssh-agent evalcache)
 
 autoload -Uz compinit && compinit
 
@@ -20,9 +20,13 @@ export EDITOR=vim
 
 if [ "$OS" = "Darwin" ]
 then
+  PATH="/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH"
+  PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+  PATH="/opt/homebrew/opt/ruby/bin:$PATH"
   PATH="$HOME/.fastlane/bin:$PATH"
   PATH="$HOME/.deno/bin:$PATH"
   PATH="$HOME/.bin:$PATH"
+  PATH="$HOME/.cargo/bin:$PATH"
   PATH="/usr/local/sbin:$PATH"
 fi
 
@@ -68,8 +72,20 @@ if command -v fnm 1>/dev/null 2>&1; then
   _evalcache fnm env
 fi
 
-export PATH="$HOME/.poetry/bin:$PATH"
+#export PATH="$HOME/.poetry/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $HOME/.customrc
+
+
+. "$HOME/.cargo/env"
+
+export UV_KEYRING_PROVIDER=subprocess
+export UV_INDEX_NUBE_PYTHON_USERNAME"oauth2accesstoken"
+export UV_INDEX_NUBE_PYTHON_PASSWORD=$(gcloud auth print-access-token --quiet)
+#export PYTHON_KEYRING_BACKEND=keyring_gcloud.GoogleCloudKeyring
+
+
+# Created by `pipx` on 2025-07-01 08:53:31
+export PATH="$PATH:/Users/hanse/.local/bin"
