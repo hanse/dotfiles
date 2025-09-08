@@ -1,0 +1,67 @@
+#!/bin/bash
+# ~/setup-worktree.sh
+# Run from a Git repository's root to create a worktree for a new branch
+
+# Check if we're in a Git repository
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+  echo "Error: Must be run from within a Git repository."
+  exit 1
+fi
+
+REPO_NAME=$(basename "$(pwd)")
+REPO_DIR=$(pwd)
+BRANCH=$1
+
+if [ -z "$BRANCH" ]; then
+  echo "Error: Please provide a branch name."
+  echo "Usage: $0 <branch-name>"
+  exit 1
+fi
+
+WORKTREE_DIR="../${REPO_NAME}-${BRANCH}"
+
+echo "Creating worktree for branch $BRANCH at $WORKTREE_DIR"
+git worktree add -b "$BRANCH" "$WORKTREE_DIR"
+if [ $? -ne 0 ]; then
+  echo "Error: Failed to create worktree. Check if branch already exists or path is invalid."
+  exit 1
+fi
+
+if [ -f "$REPO_DIR/.env" ]; then
+  cp "$REPO_DIR/.env" "$WORKTREE_DIR/.env"
+  # Optionally modify .env (e.g., set a unique PORT)
+  if [ -f "$WORKTREE_DIR/.env" ]; then
+    sed -i "s/PORT=8000/PORT=$((8000 + RANDOM % 1000))/" "$WORKTREE_DIR/.env"
+    echo "Copied and configured .env in $WORKTREE_DIR"
+  fi
+else
+  echo "Warning: .env not found in $REPO_DIR"
+fi
+
+# Change to the new worktree directory
+cd "$WORKTREE_DIR" || exit 1
+
+# Set up Python virtual environment
+if [ -f "$REPO_DIR/uv.lock" ]; then
+  # Check if uv is installed
+  if command -v uv > /dev/null 2>&1; then
+    uv sync
+    echo "Ran 'uv sync' in $WORKTREE_DIR to set up Python dependencies"
+  else
+    echo "Error: 'uv' not found. Please install uv[](https://docs.astral.sh/uv/) to use uv.lock."
+    exit 1
+  fi
+fi
+
+if [ -f "$REPO_DIR/package-lock.json" ]; then
+  npm i
+  echo "Ran 'npm i' in $WORKTREE_DIR to install npm dependencies"
+fi
+
+if [ -f "$REPO_DIR/pnpm-lock.yaml" ]; then
+  pnpm i
+  echo "Ran 'pnpm i' in $WORKTREE_DIR to install npm dependencies"
+fi
+
+echo "Worktree setup complete. Run 'cd $WORKTREE_DIR' to start."
+cd $WORKTREE_DIR
